@@ -25,6 +25,7 @@ pipeline {
             steps {
                 slackSend channel: '#devops', 
                           message: "SUCCESS: Pipeline-Abdellah-Abboudi has completed successfully!"
+                          tokenCredentialId: 'slack-token'
             }
         }
     }
@@ -34,6 +35,7 @@ pipeline {
             slackSend channel: '#devops', 
                       color: 'danger',
                       message: "FAILED: Pipeline-Abdellah-Abboudi has failed."
+                      tokenCredentialId: 'slack-token'
         }
     }
 }
