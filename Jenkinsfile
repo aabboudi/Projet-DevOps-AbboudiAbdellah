@@ -23,19 +23,23 @@ pipeline {
 
         stage('Notify Slack') {
             steps {
-                slackSend channel: '#devops', 
-                          message: "SUCCESS: Pipeline-Abdellah-Abboudi has completed successfully!",
-                          tokenCredentialId: 'slack-token'
+                slackSend(
+                    channel: '#devops', 
+                    message: "SUCCESS: Pipeline-Abdellah-Abboudi has completed successfully!",
+                    tokenCredentialId: 'slack-token'
+                )
             }
         }
     }
     
     post {
         failure {
-            slackSend channel: '#devops', 
-                      color: 'danger',
-                      message: "FAILED: Pipeline-Abdellah-Abboudi has failed.",
-                      tokenCredentialId: 'slack-token'
+            slackSend(
+                channel: '#devops', 
+                color: 'danger',
+                message: "FAILED: Pipeline-Abdellah-Abboudi has failed.",
+                tokenCredentialId: 'slack-token'
+            )
         }
     }
 }
