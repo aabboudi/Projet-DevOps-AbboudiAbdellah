@@ -23,7 +23,7 @@ pipeline {
 
         stage('Notify Slack') {
             steps {
-                slackSend channel: '#FPL-DEVOPS', 
+                slackSend channel: '#devops', 
                           message: "SUCCESS: Pipeline-Abdellah-Abboudi has completed successfully!"
             }
         }
@@ -31,7 +31,7 @@ pipeline {
     
     post {
         failure {
-            slackSend channel: '#FPL-DEVOPS', 
+            slackSend channel: '#devops', 
                       color: 'danger',
                       message: "FAILED: Pipeline-Abdellah-Abboudi has failed."
         }
